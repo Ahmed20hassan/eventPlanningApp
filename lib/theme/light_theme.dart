@@ -21,6 +21,8 @@ class LightTheme extends BaseTheme{
   @override
   // TODO: implement themeData
   ThemeData get themeData => ThemeData(
+    hintColor: backgroundcolor,
+    primaryColor: primarycolor,
     scaffoldBackgroundColor: backgroundcolor,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: primarycolor,
