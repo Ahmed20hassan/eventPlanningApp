@@ -2,10 +2,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/providers/my_provider.dart';
+import 'package:todo/screens/login_screen.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 class IntroductionScreen extends StatelessWidget {
-  static const String routname = 'letsGoScreen';
+  static const String routName = 'letsGoScreen';
   const IntroductionScreen({super.key});
 
   @override
@@ -18,13 +19,15 @@ class IntroductionScreen extends StatelessWidget {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(right: 16, left: 16, bottom: 18),
         child: ElevatedButton(
+          onPressed : (){
+            Navigator.pushNamed(context, LogoScreen.routName);
+          },
           style: ElevatedButton.styleFrom(
             padding: EdgeInsets.symmetric(vertical: 12),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             backgroundColor: Color(0xFF5669FF),
           ),
-          onPressed: () {},
           child: Text(
             'lets_start'.tr(),
             style: Theme.of(context)

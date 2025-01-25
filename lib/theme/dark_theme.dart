@@ -21,6 +21,18 @@ class DarkTheme extends BaseTheme{
   @override
   // TODO: implement themeData
   ThemeData get themeData =>  ThemeData(
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: primarycolor,
+
+          shape: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(35),
+              borderSide: BorderSide(
+                  color: Colors.white,
+                  width: 4
+              )
+          )
+      ),
+      focusColor:primarycolor,
       hintColor: backgroundcolor,
       primaryColor: primarycolor,
       scaffoldBackgroundColor: backgroundcolor,
