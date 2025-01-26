@@ -22,3 +22,5 @@ bool isSelected;
         )));
   }
 }
+//flutterfire configure --project=todo-c13-sunday-4c950 --android-app-id=com.example.todo
+//flutterfire configure --project=todo-8f8d9 --android-app-id=com.example.todoapp
