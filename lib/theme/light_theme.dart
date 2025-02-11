@@ -35,6 +35,7 @@ class LightTheme extends BaseTheme{
     ),
     focusColor: Color(0xFF7B7B7B),
     hintColor: backgroundcolor,
+    dividerColor: textcolor,
     primaryColor: primarycolor,
     scaffoldBackgroundColor: backgroundcolor,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -53,6 +54,7 @@ class LightTheme extends BaseTheme{
         color:primarycolor
       ),
     ),
+
     textTheme: TextTheme(
       titleSmall: GoogleFonts.inter(
         fontSize: 16,

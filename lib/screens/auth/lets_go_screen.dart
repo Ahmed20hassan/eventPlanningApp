@@ -1,8 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo/introduction_screen.dart';
 import 'package:todo/providers/my_provider.dart';
-import 'package:todo/screens/login_screen.dart';
+import 'package:todo/screens/auth/login_screen.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 class IntroductionScreen extends StatelessWidget {
@@ -20,7 +21,7 @@ class IntroductionScreen extends StatelessWidget {
         padding: const EdgeInsets.only(right: 16, left: 16, bottom: 18),
         child: ElevatedButton(
           onPressed : (){
-            Navigator.pushNamed(context, LogoScreen.routName);
+            Navigator.pushNamed(context, Onbording.routName);
           },
           style: ElevatedButton.styleFrom(
             padding: EdgeInsets.symmetric(vertical: 12),
@@ -51,14 +52,14 @@ class IntroductionScreen extends StatelessWidget {
               height: 28,
             ),
             Text(
-              'introduction_titel'.tr(),
+              'start_title'.tr(),
               style: Theme.of(context).textTheme.titleLarge,
             ),
             SizedBox(
               height: 28,
             ),
             Text(
-              'introduction_descrption'.tr(),
+              'start_body'.tr(),
               style: Theme.of(context).textTheme.titleSmall,
             ),
             SizedBox(

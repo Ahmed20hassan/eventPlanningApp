@@ -1,7 +1,13 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:todo/screens/home/taps/home_tap/edit_event.dart';
+import 'package:todo/firebase/firebase_maneger.dart';
+import 'package:todo/models/task_model.dart';
+import 'package:todo/screens/home/taps/home_tap/eventDetails.dart';
 
 class EventItem extends StatelessWidget {
-  const EventItem({super.key});
+  TaskModel mod;
+   EventItem({required this.mod,super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +21,16 @@ class EventItem extends StatelessWidget {
           Stack(
             alignment: Alignment.bottomCenter,
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.asset(
-                  'assets/images/Book Club.png',
-                  fit: BoxFit.fill,
+              InkWell(
+                onTap: (){
+                  Navigator.pushNamed(context, EventDetails.routName,arguments: mod);
+                },
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: Image.asset(
+                    'assets/images/${mod.categry}.png',
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
               Container(
@@ -30,11 +41,13 @@ class EventItem extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('This is a Birthday Party ',
+                    Text('${mod.tital}',
                     style: Theme.of(context).textTheme.titleSmall!.copyWith(
                       fontWeight: FontWeight.w700,
                     ),),
-                    Icon(Icons.favorite_border)
+                    Icon(Icons.favorite_border),
+
+
                   ],
                 ),
               ),
@@ -49,12 +62,12 @@ class EventItem extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Text('22',
+                Text(DateTime.fromMicrosecondsSinceEpoch(mod.date).toString().substring(8,10),
                 style: Theme.of(context).textTheme.titleSmall!.copyWith(
                   color: Theme.of(context).primaryColor,
 
                 ),),
-                Text('Now',
+                Text(MilleScondToMothe(mod.date),
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(
                     color: Theme.of(context).primaryColor,), )
               ],
@@ -63,5 +76,9 @@ class EventItem extends StatelessWidget {
         ],
       ),
     );
+  }
+  String MilleScondToMothe(int millesconds){
+    DateTime dateTime=DateTime.fromMicrosecondsSinceEpoch(millesconds);
+    return DateFormat('MMM','en').format(dateTime);
   }
 }

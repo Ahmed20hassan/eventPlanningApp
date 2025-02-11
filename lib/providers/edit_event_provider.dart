@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todo/models/task_model.dart';
 
-class CreatEventProvider extends ChangeNotifier {
+class EditEventProvider extends ChangeNotifier {
   int selectedCatigri=0;
-
   List<String> eventCategories = [
     'Birthday',
     'Book Club',
@@ -16,20 +14,13 @@ class CreatEventProvider extends ChangeNotifier {
     'Holiday',
   ];
   var selectedDate = DateTime.now();
-  TimeOfDay? selectedTime ;
   String get imageName => eventCategories[selectedCatigri];
-  ChanegSelectedDate(DateTime? date){
-    selectedDate=date!;
-    notifyListeners();
-  }
-  ChanegSelectedTime(TimeOfDay? date){
-    selectedTime=date;
-    notifyListeners();
-  }
+ChanegSelectedDate(DateTime? date){
+  selectedDate=date!;
+  notifyListeners();
+}
   ChangeCategry(index){
     selectedCatigri=index;
-
     notifyListeners();
   }
-
 }
